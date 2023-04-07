@@ -1,6 +1,7 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import Search from "../search/Search";
 
 /**
  * 
@@ -11,30 +12,17 @@ www.themealdb.com/api/json/v1/1/search.php?f=a
  * 
  */
 const Header = () => {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    /** @todo add debounce function */
-    const value = e.currentTarget.value;
-    setInputValue(value);
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
+  
 
   return (
     <header>
       <div className="logo">
         <Link href={"/"}>
-          <Image src="/logoNav.png" width={150} height={150} alt="Logo" />
+          <Image src="/logoNav.png" width={150} height={150} alt="Logo" priority/>
         </Link>
       </div>
       <div className="search">
-        <form onSubmit={handleFormSubmit}>
-          <input type="text" value={inputValue} onChange={handleInputChange} />
-          <button type="submit">Search</button>
-        </form>
+        <Search />
       </div>
     </header>
   );
