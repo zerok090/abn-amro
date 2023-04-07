@@ -2,10 +2,10 @@ import MealCard from "@/components/ui/mealCard/MealCard";
 import useFetch from "@/hooks/useFetch";
 import { Meals } from "@/types/meal";
 import Head from "next/head";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 export default function Meal() {
-  const router = useRouter()
+  const router = useRouter();
   const { id } = router.query;
 
   const { data, loading, error } = useFetch<Meals>(
@@ -30,7 +30,7 @@ export default function Meal() {
   return (
     <>
       <Head>
-        <title>Dish detail</title>
+        <title>{meal.strMeal}</title>
         <meta name="description" content="Dish detail" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
