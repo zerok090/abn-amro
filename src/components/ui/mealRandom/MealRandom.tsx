@@ -4,11 +4,6 @@ import { Meals } from "@/types/meal";
 import MealCard from "@/components/ui/mealCard/MealCard";
 import Link from "next/link";
 
-/** @todo might want to move this to own component with some custom props */
-const NoResult = () => {
-  return <p>No Result</p>;
-};
-
 function MealRandom() {
   const { data, loading, error } = useFetch<Meals>(
     "https://themealdb.com/api/json/v1/1/random.php"
@@ -25,7 +20,7 @@ function MealRandom() {
   }
 
   if (!data || !data.meals.length) {
-    return <NoResult />;
+    return <p>No result</p>
   }
 
   const meal = data.meals[0];
