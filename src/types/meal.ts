@@ -1,3 +1,7 @@
+export interface Meals {
+  meals: Meal[]
+}
+
 export interface Meal {
   idMeal: string;
   strMeal: string;
