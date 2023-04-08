@@ -1,29 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Search from "../search/Search";
+import Search from "../../common/search/Search";
+import styles from "./Header.module.scss";
+import { useRouter } from "next/router";
 
-/**
- * 
- * Search meal by name
-www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
-List all meals by first letter
-www.themealdb.com/api/json/v1/1/search.php?f=a
- * 
- */
 const Header = () => {
-  
+  const router = useRouter();
+  const [inputValue, setInputValue] = useState("");
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.currentTarget.value);
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    if (!inputValue || inputValue === "") return;
+
+    /** @todo might want to use encodeURIComponent */
+    const href = `/meals/${inputValue}`;
+    router.push(href);
+  };
+
+  /** @todo make navigation responsive with media query */
   return (
-    <header>
-      <div className="logo">
+    <header className={styles.container}>
+      <div className={styles.logo}>
         <Link href={"/"}>
-          <Image src="/logoNav.png" width={150} height={150} alt="Logo" priority/>
+          <Image
+            src="/logoNav.png"
+            width={100}
+            height={100}
+            alt="Logo"
+            priority
+          />
         </Link>
       </div>
-      <div className="search">
-        <Search />
+      <div className={styles.search}>
+        <Search
+          value={inputValue}
+          onChange={handleInputChange}
+          onSubmit={handleFormSubmit}
+        />
       </div>
+      <nav className={styles.navigation}></nav>
     </header>
   );
 };
