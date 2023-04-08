@@ -1,12 +1,14 @@
 import React from "react";
-import { Meal } from "@/types/meal";
+import type { Meal } from "@/types/meal";
 import Image from "next/image";
+import Link from "next/link";
 
 interface MealCardProps {
   meal: Meal;
+  toDetail?: boolean;
 }
 
-function MealCard({ meal }: MealCardProps) {
+function MealCard({ meal, toDetail = true }: MealCardProps) {
   return (
     <div>
       <h2>{meal.strMeal}</h2>
@@ -17,8 +19,10 @@ function MealCard({ meal }: MealCardProps) {
           width={200}
           height={200}
           alt={meal.strMeal}
+          priority
         />
       </div>
+      {toDetail && <Link href={`/meal/${meal.idMeal}`}>Details</Link>}
     </div>
   );
 }
