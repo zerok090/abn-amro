@@ -15,19 +15,17 @@ function MealRandom() {
 
   if (error) {
     /** @todo error component */
-    console.log(error);
     return <p>{error.message}</p>;
   }
 
   if (!data || !data.meals.length) {
+    /** @todo no result component */
     return <p>No result</p>;
   }
 
   const meal = data.meals[0];
 
-  return (
-      <MealCard meal={meal} />
-  );
+  return <MealCard meal={meal} />;
 }
 
 export default MealRandom;
