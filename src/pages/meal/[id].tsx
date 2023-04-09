@@ -27,6 +27,10 @@ export default function Meal() {
   }
 
   const meal = data.meals[0];
+  const videoId = meal.strYoutube.match(/watch\?v=(.*)/);
+  const ingredients = ["1"];
+  console.log(meal);
+
   return (
     <>
       <Head>
@@ -37,6 +41,17 @@ export default function Meal() {
       </Head>
       <main className={""}>
         <MealCard meal={meal} toDetail={false} />
+        {/** @todo: list of ingredients including measures, instructions */}
+        {/** @todo get this into its own component */}
+        {videoId !== null && videoId[1] ? (
+          <iframe
+            width="560"
+            height="315"
+            src={`https://youtube.com/embed/${videoId[1]}`}
+          ></iframe>
+        ) : null}
+        <ul>{ingredients.map((ingredient) => null)}</ul>
+        <details></details>
       </main>
     </>
   );
