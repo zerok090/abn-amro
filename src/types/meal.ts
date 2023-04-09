@@ -57,5 +57,3 @@ export interface Meal {
   strCreativeCommonsConfirmed: string;
   dateModified: string;
 }
-
-export type KeyMeal = keyof Meal;
