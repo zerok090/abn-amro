@@ -21,8 +21,8 @@ function MealCard({ meal, toDetail = true }: MealCardProps) {
         />
       </div>
       <div className={styles.infoContainer}>
-        <h3>{meal.strMeal}</h3>
-        {toDetail && <Link href={`/meal/${meal.idMeal}`}>Details</Link>}
+        <h3 className={styles.name}>{meal.strMeal}</h3>
+        {toDetail && <Link className={styles.recipe} href={`/meal/${meal.idMeal}`}>Recipe</Link>}
       </div>
     </div>
   );
