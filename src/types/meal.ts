@@ -5,7 +5,7 @@ export interface Meals {
 export interface Meal {
   idMeal: string;
   strMeal: string;
-  strDrinkAlternate: any;
+  strDrinkAlternate: string;
   strCategory: string;
   strArea: string;
   strInstructions: string;
@@ -53,7 +53,9 @@ export interface Meal {
   strMeasure19: string;
   strMeasure20: string;
   strSource: string;
-  strImageSource: any;
-  strCreativeCommonsConfirmed: any;
-  dateModified: any;
+  strImageSource: string;
+  strCreativeCommonsConfirmed: string;
+  dateModified: string;
 }
+
+export type KeyMeal = keyof Meal;
