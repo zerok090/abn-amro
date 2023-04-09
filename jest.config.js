@@ -13,7 +13,6 @@ const customJestConfig = {
     '^@/components/(.*)$': '<rootDir>/components/$1',
 
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
-    '\\.svg$': '<rootDir>/__mocks__/svg.js',
   },
   testEnvironment: 'jest-environment-jsdom',
 }
