@@ -24,7 +24,7 @@ const Header = () => {
   /** @todo make navigation responsive with media query */
   return (
     <header className={styles.container}>
-      <div className={styles.logo}>
+      <div className={styles.logoContainer}>
         <Link href={"/"}>
           <Image
             src="/logoNav.png"
@@ -35,14 +35,14 @@ const Header = () => {
           />
         </Link>
       </div>
-      <div className={styles.search}>
+      <div className={styles.searchContainer}>
         <Search
           value={inputValue}
           onChange={handleInputChange}
           onSubmit={handleFormSubmit}
         />
       </div>
-      <nav className={styles.navigation}></nav>
+      <nav className={styles.navigationContainer}></nav>
     </header>
   );
 };
