@@ -18,6 +18,7 @@ function MealCard({ meal, toDetail = true }: MealCardProps) {
           fill
           alt={meal.strMeal}
           priority
+          sizes="100vw (max-width: 400px),"
         />
       </div>
       <div className={styles.infoContainer}>
