@@ -1,7 +1,6 @@
-.mainContainer {
-    .mealRandomContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.mealRandomContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
