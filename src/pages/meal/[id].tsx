@@ -36,7 +36,7 @@ export default function Meal() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={""}>
-        <MealCard meal={meal} />
+        <MealCard meal={meal} toDetail={false} />
       </main>
     </>
   );
