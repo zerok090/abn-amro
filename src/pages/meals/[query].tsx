@@ -3,8 +3,9 @@ import { useRouter } from "next/router";
 import MealCard from "@/components/ui/mealCard/MealCard";
 import useFetch from "@/hooks/useFetch";
 import type { Meals } from "@/types/meal";
+import styles from "./Meals.module.scss";
 
-export default function Meal() {
+export default function Meals() {
   const router = useRouter();
   const { query } = router.query;
 
@@ -34,11 +35,11 @@ export default function Meal() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={""}>
+      <section className={styles.container}>
         {data.meals.map((meal) => {
             return <MealCard key={meal.idMeal} meal={meal} />
         })}
-      </main>
+      </section>
     </>
   );
 }
