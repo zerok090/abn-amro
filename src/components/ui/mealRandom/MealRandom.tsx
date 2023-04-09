@@ -26,9 +26,7 @@ function MealRandom() {
   const meal = data.meals[0];
 
   return (
-    <div className="">
       <MealCard meal={meal} />
-    </div>
   );
 }
 
