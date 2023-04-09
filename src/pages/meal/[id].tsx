@@ -44,7 +44,7 @@ export default function Meal() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.container}>
+      <div className={styles.container}>
         <section>
           <MealCard meal={meal} toDetail={false} />
         </section>
@@ -61,7 +61,7 @@ export default function Meal() {
           <h2>Instructions</h2>
           <MultilineText text={meal.strInstructions} />
         </section>
-      </main>
+      </div>
     </>
   );
 }
