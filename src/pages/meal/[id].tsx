@@ -1,26 +1,16 @@
-import MealCard from "@/components/ui/mealCard/MealCard";
-import useFetch from "@/hooks/useFetch";
-import type { Meals, Meal as TMeal, KeyMeal } from "@/types/meal";
 import Head from "next/head";
 import { useRouter } from "next/router";
+
+import type { Meals } from "@/types/meal";
+
+import useFetch from "@/hooks/useFetch";
+
+import MealCard from "@/components/ui/mealCard/MealCard";
+import Video from "@/components/common/video/Video";
+import MealIngredients from "@/components/ui/mealIngredients/MealIngredients";
+import MultilineText from "@/components/common/multilineText/MultilineText";
+
 import styles from "./Meal.module.scss";
-
-function getIngredientsArray(meal: TMeal) {
-  const keysMeal = Object.keys(meal) as Array<KeyMeal>;
-  return keysMeal.reduce((result, currentKey) => {
-    if (!meal[currentKey] || meal[currentKey] === "") return result;
-    if (!currentKey.includes("strIngredient")) return result;
-
-    const index = currentKey.substring(13);
-    const measurementKey = `strMeasure${index}` as KeyMeal;
-
-    const ingredient = meal[currentKey];
-    const measurment = meal[measurementKey];
-
-    result.push(`${measurment} ${ingredient}`);
-    return result;
-  }, [] as string[]);
-}
 
 export default function Meal() {
   const router = useRouter();
@@ -45,8 +35,6 @@ export default function Meal() {
   }
 
   const meal = data.meals[0];
-  const videoId = meal.strYoutube.match(/watch\?v=(.*)/);
-  const ingredientsArray = getIngredientsArray(meal);
 
   return (
     <>
@@ -60,24 +48,18 @@ export default function Meal() {
         <section>
           <MealCard meal={meal} toDetail={false} />
         </section>
-        {videoId && videoId[1] ? (
+        {meal.strYoutube && meal.strYoutube !== "" ? (
           <section>
-            <iframe
-              width="560"
-              height="315"
-              src={`https://youtube.com/embed/${videoId[1]}`}
-            ></iframe>
+            <Video src={meal.strYoutube} />
           </section>
         ) : null}
         <section>
-          <ul>
-            {ingredientsArray.map((ingredient, index) => {
-              return <li key={index}>{ingredient}</li>;
-            })}
-          </ul>
+          <h2>Ingredients</h2>
+          <MealIngredients meal={meal} />
         </section>
         <section>
-          <p>{meal.strInstructions}</p>
+          <h2>Instructions</h2>
+          <MultilineText text={meal.strInstructions} />
         </section>
       </main>
     </>
