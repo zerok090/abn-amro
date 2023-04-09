@@ -1,0 +1,6 @@
+.container {
+    display: grid;
+    grid-template-rows: min-content auto min-content;
+    gap: 1rem;
+    min-height: 100dvh;
+}
