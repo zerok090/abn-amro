@@ -12,10 +12,14 @@ function Search({ value, onChange, onSubmit }: SearchProps) {
   const handleOnSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit(e);
-  }
+  };
 
   return (
-    <form className={styles.searchContainer} onSubmit={handleOnSubmit}>
+    <form
+      className={styles.searchContainer}
+      onSubmit={handleOnSubmit}
+      name="search"
+    >
       <input
         className={styles.searchInput}
         type="text"
