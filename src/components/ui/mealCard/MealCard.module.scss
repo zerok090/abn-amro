@@ -1,13 +1,15 @@
+@import '@/styles/_variables.scss';
+
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   border-radius: 1rem;
-  border: 1px solid black;
-  width: 340px;
-  background-color: white;
+  width: 400px;
+  background-color: $color-primary;
 
   .imageContainer {
+    height: min-content;
+    position: relative;
     img {
       border-radius: 1rem 1rem 0 0;
       position: relative !important;
@@ -18,9 +20,9 @@
   .infoContainer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
     padding: 1rem;
-    align-items: center;
 
     .name {
     }
@@ -28,6 +30,10 @@
     .recipe {
       text-transform: uppercase;
       text-decoration: none;
+      color: $black;
+      background-color:  $color-secondary;
+      padding: 0.5rem;
+      border-radius: 1rem;
 
       &:visited {
         text-decoration: none;
