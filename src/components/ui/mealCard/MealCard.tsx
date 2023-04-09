@@ -1,7 +1,8 @@
 import React from "react";
-import type { Meal } from "@/types/meal";
 import Image from "next/image";
 import Link from "next/link";
+import type { Meal } from "@/types/meal";
+import styles from "./MealCard.module.scss";
 
 interface MealCardProps {
   meal: Meal;
@@ -10,19 +11,19 @@ interface MealCardProps {
 
 function MealCard({ meal, toDetail = true }: MealCardProps) {
   return (
-    <div>
-      <h2>{meal.strMeal}</h2>
-      {/** @todo make img size dependent on container */}
-      <div>
+    <div className={styles.container}>
+      <div className={styles.imageContainer}>
         <Image
           src={meal.strMealThumb}
-          width={200}
-          height={200}
+          fill
           alt={meal.strMeal}
           priority
         />
       </div>
-      {toDetail && <Link href={`/meal/${meal.idMeal}`}>Details</Link>}
+      <div className={styles.infoContainer}>
+        <h3>{meal.strMeal}</h3>
+        {toDetail && <Link href={`/meal/${meal.idMeal}`}>Details</Link>}
+      </div>
     </div>
   );
 }

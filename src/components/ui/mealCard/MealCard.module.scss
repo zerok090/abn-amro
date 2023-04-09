@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 1rem;
+  border: 1px solid black;
+  width: 240px;
+  z-index: 1;
+  background-color: white;
+
+  .imageContainer {
+    z-index: inherit;
+    img {
+      border-radius: 1rem 1rem 0 0;
+      position: relative !important;
+      object-fit: contain;
+      z-index: 3;
+    }
+  }
+
+  .infoContainer {
+  }
+}
