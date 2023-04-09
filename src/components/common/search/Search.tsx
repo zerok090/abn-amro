@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./Search.module.scss";
 import SearchIcon from "@/../public/icons/search-icon.svg";
 
