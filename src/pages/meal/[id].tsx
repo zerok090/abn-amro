@@ -40,7 +40,12 @@ export default function Meal() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>
-        <h1 className={styles.title}>{meal.strMeal}</h1>
+        <div className={styles.header}>
+          <h1 className={styles.title}>{meal.strMeal}</h1>
+          <div className={styles.image}>
+            <Image fill src={meal.strMealThumb} alt={meal.strMeal} />
+          </div>
+        </div>
         {meal.strYoutube && meal.strYoutube !== "" ? (
           <section className={styles.video}>
             <Video src={meal.strYoutube} />

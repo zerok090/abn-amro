@@ -6,10 +6,21 @@
   gap: 1rem;
   width: 55%;
 
-  .title {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 350px;
     width: 100%;
-  }
+    align-items: center;
 
+    .image {
+      position: relative;
+      min-width: 100%;
+      aspect-ratio: 1 / 0.65;
+      img {
+        border-radius: 1rem;
+      }
+    }
+  }
   .video {
     position: relative;
     min-width: 100%;
