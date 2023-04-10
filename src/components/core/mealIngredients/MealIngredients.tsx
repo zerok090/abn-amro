@@ -1,5 +1,6 @@
 import { Meal } from "@/types/meal";
 import React from "react";
+import styles from "./MealIngredients.module.scss";
 
 type MappedIngredient = {
   ingredient: string;
@@ -33,10 +34,10 @@ function MealIngredients({ meal }: MealIngredientsProps) {
   const ingredientsArray = getIngredientsArray(meal);
   return (
     <>
-      <ul>
+      <ul className={styles.container}>
         {ingredientsArray.map((ingredient, index) => {
           return (
-            <li key={index}>
+            <li key={index} className={styles.item}>
               <strong>{ingredient.measurment}</strong> {ingredient.ingredient}
             </li>
           );
