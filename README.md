@@ -1,38 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+First, run npm install in root directory to make sure we have all dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Then to the development server: npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Content
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This is PWA for searching dishes. The homepage consists of a randomly picked dish. Throughout the whole application one can use the searchbar to search for any dish. When doing so the application routes to a result page where all found dishes are presented. Clicking on the details button for a dish one is routed to the dish detail page.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Folder structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Components: 
+- common: (dumb)components that are used without any context that display simple props 
+- core: (smart)components that are used with context to our application, using common components to render state and api calls 
+- ui: specific components that target the layout of our site
 
-## Learn More
+(All components have a dedicated folder to store all relevant files for that component -> tests, styling, storybook, etc.)
 
-To learn more about Next.js, take a look at the following resources:
+Hooks: folder for all reusable functions accross pages/components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pages: folder for routing and configuring pages, homepage is by convention the file index.tsx, all other pages have their dedicated folders
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Styles: All files related to global styling should be there
 
-## Deploy on Vercel
+Types: All files related to declaring types used through the application should be there
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Included libraries
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project uses included libraries: 
+- Jest and react-testing library for testing 
+- svgr/webpack for transforming svg files into react components (mainly used for icons)
+- sass for styling
+
+## Frameworks
+
+This project uses the framework Next.js. The main reasons for that are:
+
+- Automatic code splitting: Next.js automatically splits your code into smaller chunks, which can improve the loading speed of your application and reduce the initial download size.
+- API routes: Next.js provides an easy way to create API routes, which can be used to handle backend logic and communicate with external services.
+- Extensibility: Next.js is highly extensible and provides a robust ecosystem of plugins and integrations that can help you customize your application and add new features quickly.
+
+## Application state
+
+Application state as of now is mainly handled inside of the given hooks imported by stateful components, with some local state that is only used by parent -> child component scenario's
