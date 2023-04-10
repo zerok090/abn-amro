@@ -2,15 +2,15 @@ import React from "react";
 
 interface VideoProps {
   src: string;
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
 }
 
 function getYoutubeId(url: string) {
   return url.match(/watch\?v=(.*)/);
 }
 
-function Video({ src, width = 560, height = 315 }: VideoProps) {
+function Video({ src, width = '100%', height = '100%' }: VideoProps) {
   const youtubeId = getYoutubeId(src);
 
   return (
