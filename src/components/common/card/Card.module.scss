@@ -1,0 +1,40 @@
+@import '@/styles/_variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  width: 400px;
+  background-color: $color-primary;
+
+  .imageContainer {
+    height: min-content;
+    position: relative;
+    img {
+      border-radius: 1rem 1rem 0 0;
+      position: relative !important;
+      object-fit: contain;
+    }
+  }
+
+  .infoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+
+    .recipe {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $black;
+      background-color: $white;
+      padding: 0.5rem;
+      border-radius: 1rem;
+
+      &:visited {
+        text-decoration: none;
+      }
+    }
+  }
+}
