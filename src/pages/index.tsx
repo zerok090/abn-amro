@@ -13,12 +13,6 @@ export default function HomePage() {
       </Head>
 
       <section className={styles.mealRandomContainer}>
-        <h1>Random Meals:</h1>
-        <MealRandom />
-        <MealRandom />
-        <MealRandom />
-        <MealRandom />
-        <MealRandom />
         <MealRandom />
       </section>
     </>
