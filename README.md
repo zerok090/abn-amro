@@ -1,14 +1,16 @@
 ## Getting Started
 
+(To run this project you need Node to be installed on your device!)
+
 First, run npm install in root directory to make sure we have all dependencies
 
-Then to the development server: npm run dev
+Then to run the development server: npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Content
 
-This is PWA for searching dishes. The homepage consists of a randomly picked dish. Throughout the whole application one can use the searchbar to search for any dish. When doing so the application routes to a result page where all found dishes are presented. Clicking on the details button for a dish one is routed to the dish detail page.
+This is PWA for searching dishes. The homepage consists of a randomly picked dish. Throughout the whole application one can use the searchbar to search for any dish. When doing so the application routes to a result page where all found dishes is presented. Clicking on the details button for a dish, one is routed to the dish detail page.
 
 ## Folder structure
 
