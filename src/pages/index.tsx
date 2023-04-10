@@ -1,8 +1,8 @@
 import Head from "next/head";
-import MealRandom from "@/components/ui/mealRandom/MealRandom";
+import MealRandom from "@/components/core/mealRandom/MealRandom";
 import styles from "./Home.module.scss";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <section className={styles.mealRandomContainer}>
-        <h1>Meals we think you will like</h1>
+        <h1>Random Meals:</h1>
         <MealRandom />
         <MealRandom />
         <MealRandom />

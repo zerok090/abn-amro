@@ -1,16 +1,17 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-
 import type { Meals } from "@/types/meal";
-
 import useFetch from "@/hooks/useFetch";
 
-import MealCard from "@/components/ui/mealCard/MealCard";
+import MealCard from "@/components/core/mealCard/MealCard";
 import Video from "@/components/common/video/Video";
-import MealIngredients from "@/components/ui/mealIngredients/MealIngredients";
+import MealIngredients from "@/components/core/mealIngredients/MealIngredients";
 import MultilineText from "@/components/common/multilineText/MultilineText";
+import Loading from "@/components/common/loading/Loading";
+import NoResult from "@/components/common/noResult/NoResult";
 
 import styles from "./Meal.module.scss";
+import Error from "@/components/common/error/Error";
 
 export default function Meal() {
   const router = useRouter();
@@ -20,18 +21,12 @@ export default function Meal() {
     `https://themealdb.com/api/json/v1/1/lookup.php?i=${id}`
   );
 
-  if (loading) {
-    /** @todo loader component */
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    /** @todo error component */
-    return <p>{error.message}</p>;
-  }
-
+  if (loading) return <Loading />;
+  if (error) return <Error error={error} />;
   if (!data || !data.meals || !data.meals.length) {
-    return <p>Meal not found</p>;
+    return (
+      <NoResult title="Not found" description="We could not find this meal" />
+    );
   }
 
   const meal = data.meals[0];

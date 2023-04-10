@@ -1,9 +1,12 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import MealCard from "@/components/ui/mealCard/MealCard";
+import MealCard from "@/components/core/mealCard/MealCard";
 import useFetch from "@/hooks/useFetch";
 import type { Meals } from "@/types/meal";
 import styles from "./Meals.module.scss";
+import Loading from "@/components/common/loading/Loading";
+import Error from "@/components/common/error/Error";
+import NoResult from "@/components/common/noResult/NoResult";
 
 export default function Meals() {
   const router = useRouter();
@@ -13,18 +16,15 @@ export default function Meals() {
     `https://themealdb.com/api/json/v1/1/search.php?s=${query}`
   );
 
-  if (loading) {
-    /** @todo loader component */
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    /** @todo error component */
-    return <p>{error.message}</p>;
-  }
-
+  if (loading) return <Loading />;
+  if (error) return <Error error={error} />;
   if (!data || !data.meals || !data.meals.length) {
-    return <p>No meals found</p>;
+    return (
+      <NoResult
+        title={"No meals found"}
+        description="Please modify the search and try again"
+      />
+    );
   }
 
   return (
@@ -37,7 +37,7 @@ export default function Meals() {
       </Head>
       <section className={styles.container}>
         {data.meals.map((meal) => {
-            return <MealCard key={meal.idMeal} meal={meal} />
+          return <MealCard key={meal.idMeal} meal={meal} />;
         })}
       </section>
     </>
