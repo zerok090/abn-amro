@@ -2,5 +2,11 @@
     display: grid;
     grid-template-rows: min-content auto min-content;
     gap: 1rem;
+    min-height: 100vh;
     min-height: 100dvh;
+
+    .mainContainer {
+        display: flex;
+        justify-content: center;
+    }
 }
