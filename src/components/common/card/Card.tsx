@@ -25,7 +25,7 @@ function Card({ src, alt, title, detailSrc }: CardProps) {
       <div className={styles.infoContainer}>
         <h3 className={styles.name}>{title}</h3>
         {detailSrc && (
-          <Link className={styles.recipe} href={detailSrc}>
+          <Link className={styles.details} href={detailSrc}>
             Details
           </Link>
         )}
@@ -33,7 +33,5 @@ function Card({ src, alt, title, detailSrc }: CardProps) {
     </div>
   );
 }
-
-
 
 export default Card;

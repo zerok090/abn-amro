@@ -1,8 +1,6 @@
 @import '@/styles/_variables.scss';
 
 .container {
-  display: flex;
-  flex-direction: column;
   border-radius: 1rem;
   width: 400px;
   background-color: $color-primary;
@@ -24,14 +22,17 @@
     gap: 1rem;
     padding: 1rem;
 
-    .recipe {
-      text-transform: uppercase;
+    .details {
+      display: grid;
+      justify-content: center;
+      align-items: center;
       text-decoration: none;
       color: $black;
+      font-size: 1rem;
+      border-radius: 1rem;
       background-color: $white;
       padding: 0.5rem;
-      border-radius: 1rem;
-
+      
       &:visited {
         text-decoration: none;
       }
