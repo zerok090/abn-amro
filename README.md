@@ -12,6 +12,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 This is PWA for searching dishes. The homepage consists of a randomly picked dish. Throughout the whole application one can use the searchbar to search for any dish. When doing so the application routes to a result page where all found dishes is presented. Clicking on the details button for a dish, one is routed to the dish detail page.
 
+## Unit tests
+
+For now the only fully unit tested component is the Search
+
 ## Folder structure
 
 Components: 
